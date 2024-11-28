@@ -1,10 +1,11 @@
 '''
+DESCRIÇÃO: Gera carregamento hidrostático de maneira muito mais eficiente e rápida através de abordagem de arrays e dataframes
 
+ÚLTIMA ATUALIZAÇÃO: 28/11/2024
 
-
+AUTOR: Gabriel Gomes Benites Teixeira
 
 '''
-
 
 
 import pythoncom
@@ -46,18 +47,6 @@ group_draft = App.feGroup
 
 
 
-def get_lower_coord(elemSet):
-
-    elem.Get(elem.FirstInSet(elemSet.ID))
-
-    while elemSet.Next():
-        elem.Get(elemSet.CurrentID)
-        centroid = elem.GetCentroid()
-        print(elem.D, centroid)
-
-
-
-
 
 def hydro_pressure(draft, elemSet, rho=1000/10**9, g=9807):
     group_draft.Get(group_draft.Last())
@@ -89,12 +78,11 @@ def hydro_pressure(draft, elemSet, rho=1000/10**9, g=9807):
 
 
     # Grupo contendo os elementos abaixo do calado
-    '''wet_elem_set = App.feSet
-    wet_elem_set.Get(wet_elem_set.NextEmptyID())
+    wet_elem_set = App.feSet
     elem_id_array = df['Elem IDs'].to_numpy()
-    wet_elem_set = wet_elem_set.AddArray(len(elem_id_array), elem_id_array)
+    wet_elem_set.AddArray(len(elem_id_array), elem_id_array)
     group_draft.SetAdd(constants.FT_ELEM, wet_elem_set.ID)
-    group_draft.Put(group_draft.ID)'''
+    group_draft.Put(group_draft.NextEmptyID())
 
    
     
@@ -126,6 +114,8 @@ def hydro_pressure(draft, elemSet, rho=1000/10**9, g=9807):
 #LoadMesh.PutArray(3, True, True, False, (7,8,9), ([1,0,0], [1,0,0], [1,0,0], ), [123,0,0,0,0, 898,0,0,0,0, 637,0,0,0,0], 0 ) ## Referência
     LoadMesh.PutArray(Num_elem, True, True, False, elem_id_array, face_id_array, pressure_array_formated, 0)
     
+ 
+
 
     print('Finalizado!')
     App.feViewRegenerate(0)
@@ -138,8 +128,12 @@ if __name__ == "__main__":
     group.Get(1)
     elemSet = group.List(constants.FT_ELEM)
 
+    '''i=1000
+    while i <= 24000:
+        hydro_pressure(i, elemSet)
+        i += 1000'''
 
-    hydro_pressure(23000, elemSet)
+    hydro_pressure(20000, elemSet)
 
 
     App.feViewRegenerate(0)
