@@ -7,7 +7,6 @@ AUTOR: Gabriel Gomes Benites Teixeira
 
 '''
 
-
 import pythoncom
 import PyFemap
 from PyFemap import constants
@@ -114,11 +113,16 @@ def hydro_pressure(draft, elemSet, rho=1000/10**9, g=9807):
 #LoadMesh.PutArray(3, True, True, False, (7,8,9), ([1,0,0], [1,0,0], [1,0,0], ), [123,0,0,0,0, 898,0,0,0,0, 637,0,0,0,0], 0 ) ## Referência
     LoadMesh.PutArray(Num_elem, True, True, False, elem_id_array, face_id_array, pressure_array_formated, 0)
     
- 
 
 
     print('Finalizado!')
     App.feViewRegenerate(0)
+
+
+
+def load_mesh_put(elemSet)
+
+
 
 
 

@@ -1,0 +1,27 @@
+Carregamento otimizado já está feito para o carramento histrostático.
+
+
+>> PRÓXIMOS PASSOS <<
+
+
+> CARREGAMENTO DE TANQUE:
+
+    - Gerar lógica para reconhecer a antepara que tem as normais alteradas
+    - Aplicar carregamento de tanque conforme informação do SSTAB
+
+
+> CARREGAMENTO PARA TRIM E BANDA:
+
+    - Gerar código de carregamento hidrostático considerando trim e BANDA
+        -> Testar abordagem com tratamento de um daframe e aplicação desse dataframe em um código de Load Mesh genérico
+
+    - Avaliar possibilidade de deixar tanques "mapeados" previamente
+
+
+
+> ORGANIZAÇÃO DO CÓDIGO:
+
+    - Modularizar o código e avaliar estrutura de classe ou biblioteca
+
+
+
