@@ -4,8 +4,6 @@
 
 '''
 
-
-
 import pythoncom
 import PyFemap
 from PyFemap import constants

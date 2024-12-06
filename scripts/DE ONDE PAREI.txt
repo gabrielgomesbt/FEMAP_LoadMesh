@@ -25,3 +25,12 @@ Carregamento otimizado já está feito para o carramento histrostático.
 
 
 
+-----> FAZENDO AGORA (06/12/2024):
+
+
+Já iniciei o código para mapear tanques que ja gera um CSV com as informações para entrar com o Carregamento
+
+Preciso fazer um tratamento para que a linha d'agua entre no dataframe e não a posição z do centroid
+
+Após isso criar código para gerar condição de carremento baseado em csv
+
