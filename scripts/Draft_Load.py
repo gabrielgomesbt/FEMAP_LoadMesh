@@ -51,8 +51,6 @@ def get_lower_coord(elemSet):
         print(elem.D, centroid)
 
 
-
-
 def rotated_z(CG: tuple, trim, heel):
     pass
 
@@ -127,5 +125,5 @@ if __name__ == "__main__":
     elemSet = group.List(constants.FT_ELEM)
 
 
-    hydro_pressure(1500,elemSet)
+    hydro_pressure(20000,elemSet)
 

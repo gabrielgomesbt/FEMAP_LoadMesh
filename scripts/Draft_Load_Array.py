@@ -45,8 +45,6 @@ group_draft = App.feGroup
 
 
 
-
-
 def hydro_pressure(draft, elemSet, rho=1000/10**9, g=9807):
     group_draft.Get(group_draft.Last())
     group_draft.clear()
@@ -114,13 +112,12 @@ def hydro_pressure(draft, elemSet, rho=1000/10**9, g=9807):
     LoadMesh.PutArray(Num_elem, True, True, False, elem_id_array, face_id_array, pressure_array_formated, 0)
     
 
-
     print('Finalizado!')
     App.feViewRegenerate(0)
 
 
 
-def load_mesh_put(elemSet):
+def load_mesh_put_df(elemSet):
     pass
 
 
@@ -131,12 +128,12 @@ if __name__ == "__main__":
     group.Get(1)
     elemSet = group.List(constants.FT_ELEM)
 
-    '''i=1000
+    i=1000
     while i <= 24000:
         hydro_pressure(i, elemSet)
-        i += 1000'''
+        i += 1000
 
-    hydro_pressure(20000, elemSet)
+    #hydro_pressure(20000, elemSet)
 
 
     App.feViewRegenerate(0)

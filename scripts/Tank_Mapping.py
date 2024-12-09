@@ -20,6 +20,7 @@ data  = {"Element ID": [],
          "Normal Factor": []
          }
 
+
 while tank_elem_set.Next():
 
     elem.Get(tank_elem_set.CurrentID)
@@ -46,14 +47,10 @@ df.to_csv(csv_path)
 print(df)
 
 
+
+
+
 #print(elem_array)
 
 
-
-
-
 #tank_elem_set.Select(constants.FT_ELEM, True, "Select Tank Elements")
-
-
-
-
