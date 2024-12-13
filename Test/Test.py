@@ -1,5 +1,16 @@
 import numpy as np
+import pandas as pd
 
-lista = np.tile([1,2,3], 1000)
+data = {'Nome': ['João', 'Maria', 'José'], 'Idade': [25, 30, 22]}
 
-print(lista)
+
+L = []
+for i in range(10):
+
+    df = pd.DataFrame(data)
+    df.attrs['title'] = f"Título do DataFrame {i}"
+    L.append(df)
+
+for dataframe in L:
+    print(dataframe.attrs['title'])
+    print("--------------------")

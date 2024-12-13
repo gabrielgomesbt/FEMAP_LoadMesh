@@ -3,34 +3,22 @@ Carregamento otimizado já está feito para o carramento histrostático.
 
 >> PRÓXIMOS PASSOS <<
 
+- Implementar o mesmo para acelerações rotacionais. 
 
-> CARREGAMENTO DE TANQUE:
+- Criar uma função para o Depack_Data
 
-    - Gerar lógica para reconhecer a antepara que tem as normais alteradas
-    - Aplicar carregamento de tanque conforme informação do SSTAB
+- Armazenar no título do loadset
 
-
-> CARREGAMENTO PARA TRIM E BANDA:
-
-    - Gerar código de carregamento hidrostático considerando trim e BANDA
-        -> Testar abordagem com tratamento de um daframe e aplicação desse dataframe em um código de Load Mesh genérico
-
-    - Avaliar possibilidade de deixar tanques "mapeados" previamente
+- Aprender a colocar a loadmesh dentro de um load definition
 
 
 
-> ORGANIZAÇÃO DO CÓDIGO:
 
-    - Modularizar o código e avaliar estrutura de classe ou biblioteca
-
+-----> FAZENDO AGORA (13/12/2024):
 
 
------> FAZENDO AGORA (06/12/2024):
+Fiz a classe de load por dataframe e o código de aplicação de loads no FEMAP a partir do json de pressões 
+hidrodinâmicas. 
 
 
-Já iniciei o código para mapear tanques que ja gera um CSV com as informações para entrar com o Carregamento
-
-Preciso fazer um tratamento para que a linha d'agua entre no dataframe e não a posição z do centroid
-
-Após isso criar código para gerar condição de carremento baseado em csv
 
