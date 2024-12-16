@@ -1,0 +1,30 @@
+
+
+>> PRÓXIMOS PASSOS <<
+
+
+- Finalizar as importações no arquivo main
+
+- Fazer o match de dataframes e criar o dataframe acelerações-loadsets
+
+- Desenvolver código para adicionar acelerações nos loadSets existentes
+
+
+
+
+>> ESTRUTURA GERAL DO CÓDIGO MAIN FINAL <<
+
+- Criação de pressões no modelo através de arquivo json ---------------------- [Concluída]
+- Transformação de json de acelerações em dataframa -------------------------- [Concluída]
+- Cruzamento de dataframes para vincular acelerações com período e direção-----[Desenvolvimento]
+- Aplicação em loop de acelerações nos LoadSets através do dataframe cruzado---[On Hold]
+
+
+
+
+-----> FAZENDO AGORA (16/12/2024):
+
+
+Estou criando o arquivo main e juntando o que já foi desenvolvido. A princípio
+o match entre o dataframe dos loadsets e das acelerações será feito no próprio
+arquivo main a não ser que ele ganhe complexidade.

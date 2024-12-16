@@ -17,6 +17,7 @@ class DFLoadMesh:
         self.name = name
         self.period = period
         self.direction = direction
+        self.loadset_id = None
 
 
     def put_load_df(self):
@@ -50,6 +51,7 @@ class DFLoadMesh:
         LoadMesh.Get(1)
         LoadMesh.type = constants.FLT_EPRESSURE
         LoadMesh.SetID = LoadSet.ID
+        self.loadset_id = LoadSet.ID
 
         #LoadMesh.PutArray(3, True, True, False, (7,8,9), ([1,0,0], [1,0,0], [1,0,0], ), [123,0,0,0,0, 898,0,0,0,0, 637,0,0,0,0], 0 ) ## Referência
         LoadMesh.PutArray(num_elem, True, True, False, elem_id_array, face_id_array, pressure_array_formated, 0)
