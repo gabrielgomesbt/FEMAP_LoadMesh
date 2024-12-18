@@ -1,10 +1,10 @@
 import numpy as np
 import pandas as pd
 
-data = {'Nome': ['João', 'Maria', 'José'], 'Idade': [25, 30, 22]}
+data = {'Nome': ['João', 'Maria', 'José'], 'Idade': [25, 30, 22], 'Altura': [1.7, 1.6, 1.8]}
 
 
-L = []
+'''L = []
 for i in range(10):
 
     df = pd.DataFrame(data)
@@ -13,4 +13,4 @@ for i in range(10):
 
 for dataframe in L:
     print(dataframe.attrs['title'])
-    print("--------------------")
+    print("--------------------")'''

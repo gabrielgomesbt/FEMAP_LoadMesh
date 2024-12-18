@@ -3,11 +3,8 @@
 >> PRÓXIMOS PASSOS <<
 
 
-- Finalizar as importações no arquivo main
 
-- Fazer o match de dataframes e criar o dataframe acelerações-loadsets
-
-- Desenvolver código para adicionar acelerações nos loadSets existentes
+- Descobrir qual o nome dos atributos que estou tendo problema no python (BodyAccel e BodyOrient)
 
 
 
@@ -16,15 +13,16 @@
 
 - Criação de pressões no modelo através de arquivo json ---------------------- [Concluída]
 - Transformação de json de acelerações em dataframa -------------------------- [Concluída]
-- Cruzamento de dataframes para vincular acelerações com período e direção-----[Desenvolvimento]
-- Aplicação em loop de acelerações nos LoadSets através do dataframe cruzado---[On Hold]
+- Cruzamento de dataframes para vincular acelerações com período e direção-----[Concluída]
+- Aplicação em loop de acelerações nos LoadSets através do dataframe cruzado---[Desenvolvimento]
 
 
 
 
------> FAZENDO AGORA (16/12/2024):
+-----> FAZENDO AGORA (18/12/2024):
 
 
-Estou criando o arquivo main e juntando o que já foi desenvolvido. A princípio
-o match entre o dataframe dos loadsets e das acelerações será feito no próprio
-arquivo main a não ser que ele ganhe complexidade.
+O arquivo main já está criado e preciso apenas fazer o código das acelerações funcionar
+
+
+

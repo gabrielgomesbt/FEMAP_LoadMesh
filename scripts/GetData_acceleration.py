@@ -4,7 +4,7 @@ import pandas as pd
 
 
 def data_to_acceleration_df(data, rotation_center):
-    df = pd.DataFrame(columns=['Period', 'Directiom', 'acc_TX', 'acc_TY', 'acc_TZ', \
+    df = pd.DataFrame(columns=['Period', 'Direction', 'acc_TX', 'acc_TY', 'acc_TZ', \
                                     'acc_RX', 'acc_RY', 'acc_RZ'])
 
     for periods, directions in data.items():
@@ -40,3 +40,4 @@ if __name__ == '__main__':
 
     df = data_to_acceleration_df(data, rotation_center)
     print(df)
+
