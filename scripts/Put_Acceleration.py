@@ -16,10 +16,13 @@ def put_acceleration_df(acceleration_dataframe, rotational_center):
         Acc_RY = row['acc_RY']
         Acc_RZ = row['acc_RZ']
 
+        acceleration_vector = [Acc_TX, Acc_TY, Acc_TZ, Acc_RX, Acc_RY, Acc_RZ]
+
+
         LoadSet.Get(loadsetID)
-        LoadSet.BodyAccelOn
-        LoadSet.vBodyOrigin() = rotational_center
-        LoadSet.BodyAccel() = [Acc_TX, Acc_TY, Acc_TZ, Acc_RX, Acc_RY, Acc_RZ]
+        LoadSet.BodyAccelOn = True
+        LoadSet.vBodyOrigin = rotational_center
+        LoadSet.vBodyAccel = acceleration_vector
         LoadSet.Put(loadsetID)
 
     

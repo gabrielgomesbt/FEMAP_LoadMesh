@@ -1,5 +1,5 @@
-import API_FEMAP
-from API_FEMAP import App, constants
+import scripts.API_FEMAP
+from scripts.API_FEMAP import App, constants
 import numpy as np
 import pandas as pd
 

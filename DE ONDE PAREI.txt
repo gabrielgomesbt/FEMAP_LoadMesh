@@ -1,28 +1,30 @@
 
 
->> PRÓXIMOS PASSOS <<
+>>>> PRÓXIMOS PASSOS <<<<
+
+
+>> HULL LOAD - ESTRUTURA GERAL DO CÓDIGO MAIN FINAL <<
+
+- Criação de pressões no modelo através de arquivo json ----------------------- [Concluído]
+- Transformação de json de acelerações em dataframa --------------------------- [Concluído]
+- Cruzamento de dataframes para vincular acelerações com período e direção -----[Concluído]
+- Aplicação em loop de acelerações nos LoadSets através do dataframe cruzado ---[Concluído]
 
 
 
-- Descobrir qual o nome dos atributos que estou tendo problema no python (BodyAccel e BodyOrient)
+>> TANK MAPPING - ESTRUTURA GERAL DO CÓDIGO MAIN FINAL <<
+
+- Ferramenta de mapeamento de tanque -------------------------------------------------- [Concluído - Parcialmente validado]
+- Geração de dataframe intermediário para pressão hidrostática com calado ------------- [Desenvolvimento]
+- Aplicação de Pressão nos tanques para diferentes condições de calado ---------------- [Aguardando]
 
 
 
-
->> ESTRUTURA GERAL DO CÓDIGO MAIN FINAL <<
-
-- Criação de pressões no modelo através de arquivo json ---------------------- [Concluída]
-- Transformação de json de acelerações em dataframa -------------------------- [Concluída]
-- Cruzamento de dataframes para vincular acelerações com período e direção-----[Concluída]
-- Aplicação em loop de acelerações nos LoadSets através do dataframe cruzado---[Desenvolvimento]
+-----> FAZENDO AGORA (26/12/2024):
 
 
-
-
------> FAZENDO AGORA (18/12/2024):
-
-
-O arquivo main já está criado e preciso apenas fazer o código das acelerações funcionar
+Estou trabalhando no código main para o carregamento de tanque. Já tenho a ferramenta de mapeamento de tanque que está parcialmente validada.
+Preciso agora criar um dataframe com as pressões hidrostáticas e aplicar elas nos tanques.
 
 
 

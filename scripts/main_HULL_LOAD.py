@@ -5,7 +5,7 @@ import json_handler
 import pandas as pd
 
 # Caminhos dos arquivos de input
-pressure_file_path = "json\Pressure_Data.json"
+pressure_file_path = "json\Pressure_Data_(6).json"
 acceleration_file_path = "json\Acceleration_Data.json"
 
 
