@@ -23,7 +23,7 @@ def data_to_pressure(data):
                 c+=1
                 if c == 2:
                     df = pd.DataFrame()
-                    df['Elem IDs'] = elem_id_list
+                    df['Element ID'] = elem_id_list
                     df['Pressure'] = pressure_list
 
                     load = DFLoadMesh(df,"Pressure", period, direction)

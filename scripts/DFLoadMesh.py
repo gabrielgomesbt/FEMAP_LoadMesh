@@ -23,7 +23,7 @@ class DFLoadMesh:
     def put_load_df(self):
         
         num_elem = self.load_df.shape[0]
-        elem_id_array = self.load_df['Elem IDs'].to_numpy()
+        elem_id_array = self.load_df['Element ID'].to_numpy()
         face_id_array = np.tile([1,0,0], num_elem)
 
         # Tratamento para o caso de anteparas de vante em tanque
@@ -62,7 +62,7 @@ class DFLoadMesh:
 if __name__ == "__main__":
 
     data = {
-        'Elem IDs': [1,2,3,4,5],
+        'Element ID': [1,2,3,4,5],
         'Pressure': [100, 200, 300, 400, 500],
         'Normal Factor': [1,1,1,1,1]
     }

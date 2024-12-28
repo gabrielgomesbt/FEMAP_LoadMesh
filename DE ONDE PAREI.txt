@@ -1,5 +1,3 @@
-
-
 >>>> PRÓXIMOS PASSOS <<<<
 
 
@@ -14,17 +12,16 @@
 
 >> TANK MAPPING - ESTRUTURA GERAL DO CÓDIGO MAIN FINAL <<
 
-- Ferramenta de mapeamento de tanque -------------------------------------------------- [Concluído - Parcialmente validado]
-- Geração de dataframe intermediário para pressão hidrostática com calado ------------- [Desenvolvimento]
-- Aplicação de Pressão nos tanques para diferentes condições de calado ---------------- [Aguardando]
+- Ferramenta de mapeamento de tanque -------------------------------------------------- [Concluído]
+- Geração de dataframe intermediário para pressão hidrostática com calado ------------- [Concluído]
+- Aplicação de Pressão nos tanques para diferentes condições de calado ---------------- [Concluído]
 
 
 
------> FAZENDO AGORA (26/12/2024):
+-----> FAZENDO AGORA (27/12/2024):
 
 
-Estou trabalhando no código main para o carregamento de tanque. Já tenho a ferramenta de mapeamento de tanque que está parcialmente validada.
-Preciso agora criar um dataframe com as pressões hidrostáticas e aplicar elas nos tanques.
+Códigos funcionando e validados.
 
 
 

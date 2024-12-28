@@ -27,20 +27,10 @@ class TankMapping:
         self.centroid_internal_element[2] = self.centroid_internal_element[2] + 100    # Soma para evitar que o z do elemento escolhido seja coincidente com o tank top
         self.csv_folder_path = csv_folder_path
 
-
-    def _hydro_pressure(self, draft, rho=1000/10**9, g=9807):
-        df = pd.DataFrame(self.data)
-
-        df = df[df['Centroid Z'] < draft]
-        df['Liquid Column'] = draft - df['Centroid Z']
-        df['Hydrostatic Pressure'] = df['Liquid Column'] * rho * g 
-
-        return df
-
         
 
 
-    def map_central(self, hydro_pressure=True):
+    def map(self):
         tank_elem_group.Get(self.tank_group_id)
         tank_elem_set = tank_elem_group.List(constants.FT_ELEM)
 
@@ -68,94 +58,15 @@ class TankMapping:
             self.data["Centroid Z"].append(centroid_z)
             self.data["Normal Factor"].append(normal_factor)
 
-        print(len(self.data["Element ID"]))
         df = pd.DataFrame(self.data)
         self.data = df
-
-        if hydro_pressure:
-            df = self._hydro_pressure(draft=6000)
         
 
         csv_path = f"{self.csv_folder_path}//{tank_elem_group.title}.csv"
         df.to_csv(csv_path)
+        print(f'Tank {tank_elem_group.title} successfully mapped.')
         
 
-
-    def map_portside(self):
-        tank_elem_group.Get(self.tank_group_id)
-        tank_elem_set = tank_elem_group.List(constants.FT_ELEM)
-
-        elem.Get(elem.FirstInSet(tank_elem_set.ID))
-
-        while tank_elem_set.Next():
-
-            elem.Get(tank_elem_set.CurrentID)
-            elem_id = elem.ID
-
-            elem_centroid = np.array(elem.GetCentroid()[1])
-            centroid_z = elem.GetCentroid()[1][2]
-            normal_vec = elem.GetFaceNormal(1)
-            normal_vec = np.array(normal_vec[1])
-
-            scalar_product = np.dot(normal_vec, (self.centroid_internal_element - elem_centroid))
-
-            if scalar_product < 0:
-                normal_factor = -1
-            else:
-                normal_factor = 1
-
-            self.data["Element ID"].append(elem_id)
-            self.data["Centroid Z"].append(centroid_z)
-            self.data["Normal Factor"].append(normal_factor)
-
-        df = pd.DataFrame(self.data)
-
-        csv_path = f"{self.csv_folder_path}//{tank_elem_group.title}.csv"
-        df.to_csv(csv_path)
-
-
-    def map_starboard(self):
-        tank_elem_group.Get(self.tank_group_id)
-        tank_elem_set = tank_elem_group.List(constants.FT_ELEM)
-
-        elem.Get(elem.FirstInSet(tank_elem_set.ID))
-
-        while tank_elem_set.Next():
-
-            elem.Get(tank_elem_set.CurrentID)
-            elem_id = elem.ID
-            elem_centroid = np.array(elem.GetCentroid()[1])
-            centroid_z = elem.GetCentroid()[1][2]
-            normal_vec = elem.GetFaceNormal(1)
-            normal_vec = np.array(normal_vec[1])
-
-            scalar_product = np.dot(normal_vec, (self.centroid_internal_element - elem_centroid))
-
-            if scalar_product < 0:
-                normal_factor = -1
-            else:
-                normal_factor = 1
-
-
-            self.data["Element ID"].append(elem_id)
-            self.data["Centroid Z"].append(centroid_z)
-            self.data["Normal Factor"].append(normal_factor)
-
-        df = pd.DataFrame(self.data)
-
-        csv_path = f"{self.csv_folder_path}//{tank_elem_group.title}.csv"
-        df.to_csv(csv_path)
-
-
-    def map(self, shipside):
-        if shipside == 'central':
-            self.map_central()
-        elif shipside == 'portside':
-            self.map_portside()
-        elif shipside =='starboard':
-            self.map_starboard()
-        else:
-            print('Invalid shipside\n', 3*'.\n' 'Valid Entries: central, portside, starboard')
 
 
     def get_tank_csv(self):
@@ -169,9 +80,25 @@ class TankMapping:
 if __name__ == '__main__':
 
     '''Tank_Map = TankMapping(tank_group_id=2, internal_element_id=47298)
-    Tank_Map.map_central(False)'''
+    Tank_Map.map(False)'''
 
 
-    Tank_Map_PS = TankMapping( tank_group_id=3, internal_element_id=54290)
-    #Tank_Map_PS.map_portside()
-    Tank_Map_PS.map('OI')
+    Tank_Map_1 = TankMapping( tank_group_id=1, internal_element_id=50310)
+    Tank_Map_2 = TankMapping( tank_group_id=2, internal_element_id=46522)
+    Tank_Map_3 = TankMapping( tank_group_id=3, internal_element_id=54290)
+    Tank_Map_4 = TankMapping( tank_group_id=4, internal_element_id=25441)
+    Tank_Map_5 = TankMapping( tank_group_id=5, internal_element_id=22)
+    Tank_Map_6 = TankMapping( tank_group_id=6, internal_element_id=4308)
+    Tank_Map_7 = TankMapping( tank_group_id=7, internal_element_id=40222)
+    Tank_Map_8 = TankMapping( tank_group_id=8, internal_element_id=34652)
+    Tank_Map_9 = TankMapping( tank_group_id=9, internal_element_id=35399)
+
+    Tank_Map_1.map()
+    Tank_Map_2.map()
+    Tank_Map_3.map()
+    Tank_Map_4.map()
+    Tank_Map_5.map()
+    Tank_Map_6.map()
+    Tank_Map_7.map()
+    Tank_Map_8.map()
+    Tank_Map_9.map()

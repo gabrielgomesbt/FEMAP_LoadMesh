@@ -3,6 +3,7 @@ import PyFemap
 from PyFemap import constants
 import sys
 import datetime
+from datetime import datetime
 
 
 '''Connect to FEMAP API'''
