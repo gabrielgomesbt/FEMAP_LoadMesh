@@ -29,8 +29,7 @@ class TankMapping:
 
         
 
-
-    def map(self):
+    def map_z(self):
         tank_elem_group.Get(self.tank_group_id)
         tank_elem_set = tank_elem_group.List(constants.FT_ELEM)
 
@@ -65,6 +64,45 @@ class TankMapping:
         csv_path = f"{self.csv_folder_path}//{tank_elem_group.title}.csv"
         df.to_csv(csv_path)
         print(f'Tank {tank_elem_group.title} successfully mapped.')
+
+
+
+
+    def map_y(self):
+        tank_elem_group.Get(self.tank_group_id)
+        tank_elem_set = tank_elem_group.List(constants.FT_ELEM)
+
+        elem.Get(elem.FirstInSet(tank_elem_set.ID))
+
+        while tank_elem_set.Next():
+
+            elem.Get(tank_elem_set.CurrentID)
+            elem_id = elem.ID
+
+            elem_centroid = np.array(elem.GetCentroid()[1])
+            centroid_y = elem.GetCentroid()[1][1]
+            normal_vec = elem.GetFaceNormal(1)
+            normal_vec = np.array(normal_vec[1])
+            
+            scalar_product = np.dot(normal_vec, (self.centroid_internal_element - elem_centroid))
+
+            if scalar_product < 0:
+                normal_factor = -1
+            else:
+                normal_factor = 1
+
+
+            self.data["Element ID"].append(elem_id)
+            self.data["Centroid Z"].append(centroid_y)
+            self.data["Normal Factor"].append(normal_factor)
+
+        df = pd.DataFrame(self.data)
+        self.data = df
+        
+
+        csv_path = f"{self.csv_folder_path}//{tank_elem_group.title}.csv"
+        df.to_csv(csv_path)
+        print(f'Tank {tank_elem_group.title} successfully mapped.')
         
 
 
@@ -80,7 +118,7 @@ class TankMapping:
 if __name__ == '__main__':
 
     '''Tank_Map = TankMapping(tank_group_id=2, internal_element_id=47298)
-    Tank_Map.map(False)'''
+    Tank_Map.map_z(False)'''
 
 
     Tank_Map_1 = TankMapping( tank_group_id=1, internal_element_id=50310)
@@ -93,12 +131,12 @@ if __name__ == '__main__':
     Tank_Map_8 = TankMapping( tank_group_id=8, internal_element_id=34652)
     Tank_Map_9 = TankMapping( tank_group_id=9, internal_element_id=35399)
 
-    Tank_Map_1.map()
-    Tank_Map_2.map()
-    Tank_Map_3.map()
-    Tank_Map_4.map()
-    Tank_Map_5.map()
-    Tank_Map_6.map()
-    Tank_Map_7.map()
-    Tank_Map_8.map()
-    Tank_Map_9.map()
+    Tank_Map_1.map_z()
+    Tank_Map_2.map_z()
+    Tank_Map_3.map_z()
+    Tank_Map_4.map_z()
+    Tank_Map_5.map_z()
+    Tank_Map_6.map_z()
+    Tank_Map_7.map_z()
+    Tank_Map_8.map_z()
+    Tank_Map_9.map_z()

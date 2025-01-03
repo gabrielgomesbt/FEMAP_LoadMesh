@@ -1,5 +1,5 @@
 '''
-Last Update: 27/12/2024
+Last Update: 03/01/2024
 
 @author: Gabriel Gomes Benites Teixeira
 
@@ -22,12 +22,16 @@ def tank_hydro_df(tank_name, draft, rho=1000/10**9, g=9807):
     csv_path = 'CSV'
     df = pd.read_csv(f'{csv_path}//{tank_name}.csv')
 
-    '''hydro_load_df = df[df['Centroid Z'] < draft]
-    hydro_load_df['Liquid Column'] = draft - hydro_load_df['Centroid Z']
-    hydro_load_df['Hydrostatic Pressure'] = hydro_load_df['Liquid Column'] * rho * g'''
+    if 'Centroid Z' in df.columns:
+        centroid_col = 'Centroid Z'
+    elif 'Centroid Y' in df.columns:
+        centroid_col = 'Centroid Y'
+    else:
+        raise Exception("The dataframe don't have any centroid column.")
+    
 
-    df = df[df['Centroid Z'] < draft]
-    df['Liquid Column'] = draft - df['Centroid Z']
+    df = df[df[centroid_col] < draft]
+    df['Liquid Column'] = draft - df[centroid_col]
     df['Pressure'] = df['Liquid Column'] * rho * g * (-1)
 
 
