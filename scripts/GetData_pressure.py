@@ -17,7 +17,7 @@ def data_to_pressure(data):
                 for item in shipside_list:
                     
                     elem_id = int(item['ID'])
-                    pressure = item['Mod []']
+                    pressure = item['Mod []'] * -1
                     elem_id_list.append(elem_id)
                     pressure_list.append(pressure)
                 c+=1

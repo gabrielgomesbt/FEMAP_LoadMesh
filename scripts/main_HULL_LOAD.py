@@ -5,7 +5,7 @@ import json_handler
 import pandas as pd
 
 # Caminhos dos arquivos de input
-pressure_file_path = "json\Pressure_Data_(6).json"
+pressure_file_path = "json\Pressure_Data (7).json"
 acceleration_file_path = "json\Acceleration_Data.json"
 
 
@@ -15,7 +15,7 @@ pressure_data = pressure_data['case test']['Ship Responses']
 loadset_df = GetData_pressure.data_to_pressure(pressure_data)
 
 
-# Geração do dataframe de pressões
+'''# Geração do dataframe de pressões
 acceleration_data = json_handler.get_json_data(acceleration_file_path)
 data = acceleration_data['case test']['Ship Responses']
 rotation_center = acceleration_data['case test']['CoG [m]']
@@ -28,4 +28,4 @@ merged_df = pd.merge(loadset_df, df, on=['Period', 'Direction'], how='left')
 print(merged_df)
 
 # Aplicação de acelerações no modelo
-Put_Acceleration.put_acceleration_df(merged_df, rotation_center)
+Put_Acceleration.put_acceleration_df(merged_df, rotation_center)'''
